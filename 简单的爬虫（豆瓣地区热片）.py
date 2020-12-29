@@ -11,14 +11,15 @@ soup = BeautifulSoup(response.content.decode('utf-8'), 'lxml')
 all_movies = soup.find('div', id="showing-soon")
 srcObj = []
 imgObj = []
-i = 0
+# i = 0
 for each_movie in all_movies.find_all('div', class_="item"):
     imgObj.append(each_movie.find("img"))
-#     s = str(imgObj[i])[19:-3]
-    s = str(imgObj[i]).split('"')[-2]
-    i = i + 1
-#     print(s[19:-1])    
-    srcObj.append(s)
+    srcObj.append(all_img[0]['src'])
+# #     s = str(imgObj[i])[19:-3]
+#     s = str(imgObj[i]).split('"')[-2]
+#     i = i + 1
+# #     print(s[19:-1])    
+#     srcObj.append(s)
 # print(srcObj)
 for src in srcObj:
     print(src)
